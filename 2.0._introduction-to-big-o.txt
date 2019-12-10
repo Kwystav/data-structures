@@ -1,0 +1,127 @@
+Computational Complexity Analysis
+    As programmers, we often find ourselfs asking the same two questions
+    over and over again:
+        How much TIME does this algorithm need to finish
+        How much SPACE does this algorithm need for it's computation?
+
+
+Big-O Notation
+    Big-O Notation gives an upper bound of the complexity in the worst case, 
+    helping to quantify performance as the input size becomes arbitratily
+    large.
+
+    n - The size of the input
+    Complexities ordered in from smallest to largest
+    ------------------------------------------------
+       Constant Time: 0(1)
+    Logarithmic Time: 0(log(n))
+         Linear Time: 0(n)
+   Linearithmic Time: 0(nlog(n))
+        Quadric Time: 0(n^2)
+          Cubic Time: 0(n^3)
+    Exponential Time: 0(b^n), b > 1
+      Factorial Time: 0(n!)
+
+
+Big-O Properties
+    0(n + c) = 0(n)
+       0(cn) = 0(n), c > 0
+
+    Let f be a function that describes the running time of a particular
+    algorithm for an input of size n:
+        f(n) = 7log(n)^3 + 15n^2 + 2n^3 + 8
+        0(f(n)) = 0(n^3)
+
+    Practical examples coming up don't worry :)
+
+
+Big-0 Examples
+    The following run in CONSTANT time: 0(1)
+    a := 1              i := 0
+    b := 2              While i < 11 Do
+    c := a + 5*b        i = i + 1
+
+
+    The following run in LINEAR time: 0(n)
+    i := 0              i := 0 
+    While i < n Do      While i < n Do 
+        i = i + 1       i = i + 3
+  
+       f(n) = n           f(n) = n/3
+    o(f(n)) = 0(n)      0(f(n)) = 0(n)
+
+
+    Both of the following run in quadratic time.
+    The first may be obvious since n work done
+    n times is n*n = 0(n^2), but what about the 
+    second one?
+    For (i:=0; i<n; i=i+1)
+        For(j:=0; j<n; j=j+1)
+    f(n) = n*n = n^2, 0(f(n)) = 0(n^2)
+
+    QUESTION
+    For(i := 0; i<n; i=i+1)
+        For(j:=i; j<n; j-j+1)
+               ^ replace 0 with 1
+    ANSWER
+    For a moment just focus on the second loop.
+    Since i goes from [0,n] the amount of looping
+    done is directly determined by what i is.
+    Remark that if 1=0, we do n work, if i=1, we do
+    n-1 work, if i=2, we do n-2 work, etc...
+
+    So the question them becomes what is: 
+    (n) + (n-1) + (n-2) + (n-3) + ... + 3 + 2 + 1?
+    Remarkably this turns out to be n(n+1)/2, so 
+    0(n(n+1)/2) = 0(n^2/2 + n/2) = 0(n^2)
+
+    For (i:= 0; i<n; i=i+1)
+        For (j:=i; j<n; j=j+1)
+
+    
+    Suppose we have a sorted array and we want to find the index fo a particular
+    value in the array, if it exists. What is the time complexity of the 
+    following algorithm?
+
+    low  := 0
+    high := n-1      Ans: 0(log2(n)) = 0(log(n))
+    While low <= high Do
+
+        mid "= (low + high) / 2
+
+        If array[mid] == value: return mid
+        Else If array[mid] < value: lo = mid + 1
+        Else If array[mid] > value: hi = mid - 1
+    
+    return -1 // Value not found
+
+    i := 0
+    While i < n Do  
+        j = 0
+        While j < 3*n Do 
+            j = j + 1
+        While j < 2*n Do 
+            j = j + 1
+        i = i + 1
+
+    f(n) = n * (3n + 2n) = 5n^2
+          0(f(n)) = 0(n^2)
+
+    i := 0
+    While i < 3 * n Do 
+        j := 10
+        While j <= 50 Do
+            j = j + 1
+        j = 0
+        While j < n*n*n Do
+            j = j + 2
+        i = i + 1
+
+    f(n) = 3n * (40 + n^3/2) = 3n/40 + 3n^4/2
+            0(f(n)) = 0(n^4)
+    
+    Other Big-0 Examples:
+        Finding all subsets of a set - 0(2^n)
+        Finding all permutations of a string - 0(n!)
+        Sorting using mergesort - 0(nlog(n))
+        Iterating over all the cells in a matrix of size n by m - 0(nm)
