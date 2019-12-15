@@ -1,7 +1,7 @@
 import java.util.Iterator;
 
 @SuppressWarnings("unchecked")
-public class Array<T> implements Iterable<T> {
+public class 3.1.DynamicArrayCode <T> implements Iterable<T> {
     private T[] arr;
     private int len = 0; // Length user thinks array is
     private int capcity = 0; // Actual array size
