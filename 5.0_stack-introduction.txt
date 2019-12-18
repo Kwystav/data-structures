@@ -1,0 +1,189 @@
+Outline
+    - Discussion about Stacks
+        -What is a Stack?
+        -When and where is a Stack used?
+        -Complexity Analysis
+        -Stack usage examples
+    - Implementation details
+        - Pushing elements on stack
+        -Popping elements from stack
+    -Code Implementation
+
+
+Discussion 
+
+    What is a Stack?
+        A stack is one-ended lineat data structure which models a real world stack
+            by having two primary operations, namely push and pop.
+            
+            Data -> Push         Pop -> Data
+                    Top -> Data 
+                           Data
+                           Data 
+
+    Instuctions
+        1)   
+        -> pop()
+            push('Onion')
+            push('Celery')                 Apple
+            push('Watermelon')                ^
+            pop()                          Potato
+            pop()                          Cabbage
+            push('Lettuce')                Garlic
+
+        2)   
+            pop()
+        -> push('Onion')
+            push('Celery')                 
+            push('Watermelon')             Onion  
+            pop()                          Potato
+            pop()                          Cabbage
+            push('Lettuce')                Garlic
+
+        3)   
+            pop()
+            push('Onion')
+        -> push('Celery')                 Celery
+            push('Watermelon')             Onion
+            pop()                          Potato
+            pop()                          Cabbage
+            push('Lettuce')                Garlic
+
+        4)   
+            pop()
+            push('Onion')                  Watermelon
+            push('Celery')                 Celery
+        -> push('Watermelon')             Onion
+            pop()                          Potato
+            pop()                          Cabbage
+            push('Lettuce')                Garlic
+
+        5)   
+            pop()                          Watermelon
+            push('Onion')                     ^
+            push('Celery')                 Celery
+            push('Watermelon')             Onion
+        -> pop()                          Potato
+            pop()                          Cabbage
+            push('Lettuce')                Garlic
+
+        6)   
+            pop()                          
+            push('Onion')                  Celery   
+            push('Celery')                    ^
+            push('Watermelon')             Onion
+            pop()                          Potato
+        -> pop()                          Cabbage
+            push('Lettuce')                Garlic
+
+        7)   
+            pop()                          
+            push('Onion')                  
+            push('Celery')                 Lettuce   
+            push('Watermelon')             Onion
+            pop()                          Potato
+            pop()                          Cabbage
+         -> push('Lettuce')                Garlic
+
+
+    When and Where is a Stack Used?
+        - Used by undo mechanisms in text editors.
+        - Used in complier syntax checking matching brackets and braces.
+        - Can be used to model a pile of books or plates.
+        - Used behind the scenes to support recursion by keeping track of previous
+            function calls.
+        - Can be used to do a Depth First Search(DFS) on a graph. 
+
+
+Complexity
+    Pushing     0(1)
+    Popping     0(1)
+    Peeking     0(1)
+  Searching     0(n)
+       Size     0(1)
+
+Example - Brackets
+    Problem: Given a string made up of the following brackets: ()[]{}, determine whether
+        the brackets properly match.
+
+        [{}]      ->      Valid
+       (()())     ->      Valid
+         {]       ->      Invalid
+      [()]))()    ->      Valid
+      []{}([])    ->      Valid
+
+      Bracket Sequence: 
+        [[{}]()]
+
+        Current Bracket: 0
+       Reversed Bracket: 0
+
+       Bracket Sequence: 
+        [[{}]()]
+        ^
+        Current Bracket: [
+       Reversed Bracket: ]     [
+
+       Bracket Sequence: 
+        [[{}]()]
+         ^
+        Current Bracket: [     [
+       Reversed Bracket: ]     [
+
+       Bracket Sequence: 
+        [[{}]()]
+          ^                    {
+        Current Bracket: {     [
+       Reversed Bracket: }     [
+
+       Bracket Sequence: 
+        [[{}]()]
+           ^                   {
+        Current Bracket: }     [
+       Reversed Bracket: {     [
+
+       Bracket Sequence: 
+        [[{}]()]
+            ^                  
+        Current Bracket: ]     [
+       Reversed Bracket: [     [
+
+       Bracket Sequence: 
+        [[{}]()]
+             ^                   
+        Current Bracket: (     (
+       Reversed Bracket: )     [
+
+       Bracket Sequence: 
+        [[{}]()]
+              ^                   
+        Current Bracket: )     (
+       Reversed Bracket: (     [
+
+       Bracket Sequence: 
+        [[{}]()]
+               ^                   
+        Current Bracket: ]     
+       Reversed Bracket: [     [
+
+       Bracket Sequence: 
+        [[{}]()]  -> Empty === valid
+                                  
+        Current Bracket: ]     
+       Reversed Bracket: [     
+
+Example- Brackets
+    Let S be a stack
+    For bracket in bracket_string:
+        rev = getReversedBracket(backet)
+
+        If isLeftBracket(bracket):
+            S.push(bracket)
+
+        Else If S,isEmpty() or S.pop() != rev:
+            return false // Invalid
+    
+    return S.isEmpty // Valid if S is empty
+
+This data structure also relates to the Tower of Hanoi game.
+
