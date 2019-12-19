@@ -1,0 +1,111 @@
+Stack Implementation
+
+    Pushing 
+    1) Instructions
+        Push(4)
+        Push(2)
+        Push(5)
+        Push(13)             Null <- Head
+
+    2) Instructions
+     -> Push(4)
+        Push(2)
+        Push(5)
+        Push(13)             4 <- Head
+                             |
+                            Null
+
+    3) Instructions
+        Push(4)
+     -> Push(2)
+        Push(5)
+        Push(13)             2 <- Head
+                             |
+                             4
+                             |
+                            Null
+
+    4) Instructions
+        Push(4)
+        Push(2)
+     -> Push(5)
+        Push(13)             5 <- Head
+                             |
+                             2
+                             |
+                             4
+                             |
+                            Null
+
+    5) Instructions
+        Push(4)
+        Push(2)
+        Push(5)
+     -> Push(13)             13 <- Head
+                             |
+                             5
+                             |
+                             2
+                             |
+                             4
+                             |
+                            Null
+
+    Popping
+    1) Instructions
+        Pop()
+        Pop()
+        Pop()
+        Pop()                13 <- Head
+                             |
+                             5
+                             |
+                             2
+                             |
+                             4
+                             |
+                            Null
+
+    2) Instructions
+     -> Pop()
+        Pop()
+        Pop()
+        Pop()                Null 
+                             |
+                             5 <- Head
+                             |
+                             2
+                             |
+                             4
+                             |
+                            Null
+
+    3) Instructions
+        Pop()
+    ->  Pop()
+        Pop()
+        Pop()                Null 
+                             |
+                             2 <- Head
+                             |
+                             4
+                             |
+                            Null
+
+    4) Instructions
+        Pop()
+        Pop()
+    ->  Pop()
+        Pop()                Null 
+                             |
+                             4 <- Head
+                             |
+                            Null
+
+    5) Instructions
+        Pop()
+        Pop()
+        Pop()
+     -> Pop()                Null 
+                             |
+                            Null <- Head Now Stack is = Null
