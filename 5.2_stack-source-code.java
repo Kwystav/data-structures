@@ -1,3 +1,4 @@
+import java.util.EmptyStackException;
 import java.util.LinkedList;
 
 public class Stack<T> implements Iterable<Stack> {
@@ -30,6 +31,14 @@ public class Stack<T> implements Iterable<Stack> {
     // Pop an element off the stack
     // Throws an error if the stack is empty
     public T pop() {
+        if (isEmpty())
+            throw new java.util.EmptyStackException();
+        return list.peekLast();
+    }
+
+    // Peek the top of the stack without removing an element
+    // Throws an exception if the stack is empty
+    public T peek() {
         if (isEmpty())
             throw new java.util.EmptyStackException();
         return list.peekLast();
