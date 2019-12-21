@@ -1,0 +1,185 @@
+Queue Implementation
+    BFS example to complicated for a .txt file.
+
+
+    Queue Example - BFS
+        Let Q be a Queue
+        Q.enqueue(starting_node)
+        starting_node.visited = true
+
+        While Q is not empty Do
+
+            node = Q.dequeue()
+
+            For neightbor in neightbors(node):
+                If neightbor has not been visited:
+                    neightbor.visited = true
+                    Q.enqueue(neightbor)
+
+
+    Queue Implementation Details
+        Enqueuing
+            1) Instructions
+                Enqueue(5)
+                Enqueue(1)
+                Enqueue(6)
+                Enqueue(17)
+                Enqueue(8)
+
+                Tail
+                |
+                Null
+                |
+                Head
+
+            2) Instructions
+                Enqueue(5) <-
+                Enqueue(1)
+                Enqueue(6)
+                Enqueue(17)
+                Enqueue(8)
+
+               Tail
+                |
+                5 -> Null
+                |
+               Head
+
+            3) Instructions
+                Enqueue(5) 
+                Enqueue(1) <-
+                Enqueue(6)
+                Enqueue(17)
+                Enqueue(8)
+
+                   Tail
+                    |
+                5 -> 1 -> Null
+                |
+               Head
+
+            4) Instructions
+                Enqueue(5) 
+                Enqueue(1) 
+                Enqueue(6) <-
+                Enqueue(17)
+                Enqueue(8)
+
+                           Tail
+                            |
+                5 -> 1 -> 6 -> Null
+                |
+               Head
+
+            5) Instructions
+                Enqueue(5) 
+                Enqueue(1) 
+                Enqueue(6) 
+                Enqueue(17) <-
+                Enqueue(8)
+
+                               Tail
+                                |
+                5 -> 1 -> 6 -> 17 -> Null
+                |
+               Head
+
+            5) Instructions
+                Enqueue(5) 
+                Enqueue(1) 
+                Enqueue(6) 
+                Enqueue(17) 
+                Enqueue(8) <-
+
+                                    Tail
+                                     |
+                5 -> 1 -> 6 -> 17 -> 8-> Null
+                |
+               Head
+
+        Dequeuing
+            1) Instructions
+                Dequeue()
+                Dequeue()
+                Dequeue()
+                Dequeue()
+                Dequeue()
+
+                                    Tail
+                                     |
+                5 -> 1 -> 6 -> 17 -> 8-> Null
+                |
+               Head
+
+            2) Instructions
+                Dequeue() <-
+                Dequeue()
+                Dequeue()
+                Dequeue()
+                Dequeue()
+
+                                    Tail
+                                     |
+               Null  1 -> 6 -> 17 -> 8-> Null
+                     |
+                    Head
+
+            3) Instructions
+                Dequeue() 
+                Dequeue() <-
+                Dequeue()
+                Dequeue()
+                Dequeue()
+
+                                    Tail
+                                     |
+                    Null  6 -> 17 -> 8-> Null
+                          |
+                        Head
+
+            4) Instructions
+                Dequeue() 
+                Dequeue() 
+                Dequeue() <-
+                Dequeue()
+                Dequeue()
+
+                                    Tail
+                                     |
+                          Null 17 -> 8-> Null
+                               |
+                              Head
+
+            5) Instructions
+                Dequeue() 
+                Dequeue() 
+                Dequeue() 
+                Dequeue() <- 
+                Dequeue()
+
+                                    Tail
+                                     |
+                                Null 8-> Null
+                                     |
+                                    Head
+
+            6) Instructions
+                Dequeue() 
+                Dequeue() 
+                Dequeue() 
+                Dequeue()  
+                Dequeue() <-
+
+                                    Tail
+                                     |
+                                    Null
+                                     |
+                                    Head
+
+
+
+
+            
+
+
+    
