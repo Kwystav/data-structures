@@ -1,0 +1,116 @@
+Queue Introduction
+
+Outline
+- Discussion About Queues
+    - What is a queue?
+    - Terminology
+    - When and where is a queue used?
+    - Complexity Analysis
+    - Queue Breadth First Search (BFS) example
+- Implementation Details
+    - How to enqueue (add) elements to a queue
+    - How to dequeue (remove) elements from a queue
+- Code Templementation
+
+
+Discussion
+    What is a Queue?
+        A queue is a linear data structure which models real world queues by 
+            having two primary operations, namely enqueue and dequeue.
+          
+          Dequeue    Queue Back    
+             |           |
+            0 <- 0 0 0 0 0 <- 0
+                 |           |
+          Queue Front     Enqueue
+
+    Queue Terminology
+        There does not seem to be consistent terminology for inserting and removing
+            elements from queues.
+
+            Enqueue = Adding = Offering
+
+            Dequeue = Polling
+            (These are also sometimes called removing, 
+            but I find this ambiguous)
+
+    Queue example
+    1)  Instructions:
+            Enqueue(12)
+            Dequeue()
+            Dequeue()
+            Enqueue(7)
+            Dequeue()
+            Enqueue(-6)
+        Front -> 55 -1 33 17 11 <- Back
+
+    2)  Instructions:
+            Enqueue(12) <-
+            Dequeue()
+            Dequeue()
+            Enqueue(7)
+            Dequeue()
+            Enqueue(-6)
+        Front -> 55 -1 33 17 11 12 <- Back
+
+    3)  Instructions:
+            Enqueue(12) 
+            Dequeue() <-
+            Dequeue()
+            Enqueue(7)
+            Dequeue()
+            Enqueue(-6)
+        Front -> -1 33 17 11 12 <- Back
+
+    4)  Instructions:
+            Enqueue(12) 
+            Dequeue()
+            Dequeue() <-
+            Enqueue(7)
+            Dequeue()
+            Enqueue(-6)
+        Front -> 33 17 11 12 <- Back
+
+    5)  Instructions:
+            Enqueue(12) 
+            Dequeue()
+            Dequeue()
+            Enqueue(7) <-
+            Dequeue()
+            Enqueue(-6)
+        Front -> 33 17 11 12 7 <- Back
+
+    6)  Instructions:
+            Enqueue(12) 
+            Dequeue()
+            Dequeue()
+            Enqueue(7)
+            Dequeue() <-
+            Enqueue(-6)
+        Front -> 17 11 12 <- Back
+
+    7)  Instructions:
+            Enqueue(12) 
+            Dequeue()
+            Dequeue()
+            Enqueue(7)
+            Dequeue() 
+            Enqueue(-6) <-
+        Front -> 17 11 12 -6 <- Back
+
+
+    When and where is a Queue used?
+        - Any waiting line models a queue, for example a lineup at a movie theatre.
+        - Can be used to effeiciently keep track of the x most recently added
+            elements
+        - Web server request management where you want first come first serve.
+        - Breadth first search (BFS) graph traversal.
+
+    
+    Complexity Analysis
+        Enqueue     0(1)
+        Dequeue     0(1)
+        Peeking     0(1)
+       Contains     0(n)
+        Removal     0(n)
+       Is Empty     0(1)
